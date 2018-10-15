@@ -3,12 +3,41 @@
   <head>
     <title>Skadai2</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <header>
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+        <span class="sr-only">Bootstrap</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">toppage</a>
+    </div>
+    <div id="gnavi" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/blogs">バイクブログ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+  </header>
+  
     <%= yield %>
+    
+    <footer>
+    <p>運営会社Sato株式会社</p>
+    <p>© 2015-2016 Copyright Sato Corp.</p>
+  </footer>
+  
   </body>
 </html>
