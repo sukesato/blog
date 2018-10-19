@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :user_exist?, only: [:new, :edit, :show, :destroy]
   
   def index
     @blogs = Blog.all
@@ -23,15 +24,12 @@ class BlogsController < ApplicationController
   end
   
   def edit
-    @blog = Blog.find(params[:id])
   end
   
   def show
-    @blog = Blog.find(params[:id])
   end
   
   def update
-    @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
       redirect_to blogs_path, notice: "ブログを編集しました！"
     else
@@ -59,4 +57,10 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
 
+  def user_exist?
+    unless logged_in?
+      redirect_to new_session_path
+    end
+  end
+  
 end
