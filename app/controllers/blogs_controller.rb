@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :user_exist?, only: [:new, :edit, :show, :destroy]
-  before_action :user_equal?, only: [:new, :edit, :destroy]
+  before_action :user_equal?, only: [:edit, :destroy]
   
   def index
     @blogs = Blog.all
