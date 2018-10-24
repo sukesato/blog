@@ -1,7 +1,5 @@
 <h1>バイクブログ</h1>
 
-<p><%= notice %></p>
-
 <div class ="row blogcontent">
   <% @blogs.each do |blog| %>
   
@@ -9,8 +7,10 @@
     <p>タイトル<%= blog.title %></p>
     内容<%= blog.content %></p>
     <%= link_to '詳細確認', blog_path(blog.id),class: "btn btn-info" %>
-    <%= link_to "ブログ編集", edit_blog_path(blog.id), class: "btn btn-info",data: { confirm: '本当に編集してもよいですか？' } %>
-    <%= link_to 'ブログ削除', blog_path(blog.id),class: "btn btn-info", method: :delete ,data: { confirm: '本当に削除してもよいですか？' } %>
+    <% if blog.user_id == current_user.id %>
+      <%= link_to "ブログ編集", edit_blog_path(blog.id), class: "btn btn-info",data: { confirm: '本当に編集してもよいですか？' } %>
+      <%= link_to 'ブログ削除', blog_path(blog.id),class: "btn btn-info", method: :delete ,data: { confirm: '本当に削除してもよいですか？' } %>
+    <% end %>
 </div>
 <% end %>
 </div>
