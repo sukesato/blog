@@ -2,6 +2,11 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.image.url %>
+</p>
+
 <% @favorite_blogs.each do |blog| %>
   <p>タイトル　<%=blog.blog.title %></p>
   <p>コンテンツ　<%=blog.blog.content %></p>

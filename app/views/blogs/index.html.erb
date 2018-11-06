@@ -5,6 +5,10 @@
 <div class="col-sm-12 col-md-6">
   <p>タイトル<%= blog.title %></p>
   <p>内容<%= blog.content %></p>
+  <p>
+  <strong>Image:</strong>
+  <%= image_tag blog.image.url %>
+  </p>
   <%= link_to '詳細確認', blog_path(blog.id),class: "btn btn-info" %>
   <% if blog.user_id == current_user.id %>
     <%= link_to "ブログ編集", edit_blog_path(blog.id), class: "btn btn-info",data: { confirm: '本当に編集してもよいですか？' } %>
@@ -13,6 +17,5 @@
 </div>
 <% end %>
 </div>
-
 
 <%= link_to '新しくブログを投稿する', new_blog_path %>

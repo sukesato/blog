@@ -31,7 +31,7 @@
 </nav>
     
   </header>
-
+<div class = index>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -45,6 +45,7 @@
     <% end %>
     
     <%= yield %>
+    </div>
     
     <footer>
     <p>運営会社Sato株式会社</p>

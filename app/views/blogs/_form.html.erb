@@ -20,6 +20,11 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div class="field">
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :image_cash %>
+  </div>
   <%= form.submit %>
 <% end %>
 
